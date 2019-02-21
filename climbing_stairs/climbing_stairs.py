@@ -27,7 +27,7 @@ def climbing_stairs(n):
     if n == 1:
         return 1
     if n <= 0:
-        return 0
+        return 1
     if n in cache:
         return cache[n]
     value = climbing_stairs(n-1) + climbing_stairs(n-2) + climbing_stairs(n-3)
@@ -35,7 +35,7 @@ def climbing_stairs(n):
     return value
 
 
-print(climbing_stairs(500))
+print(climbing_stairs(0))
 
 
 if __name__ == "__main__":
