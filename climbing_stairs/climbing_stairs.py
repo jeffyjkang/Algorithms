@@ -18,7 +18,8 @@ import sys
 cache = {}
 
 
-def climbing_stairs(n, cache=None):
+# def climbing_stairs(n, cache=None):
+def climbing_stairs(n):
     if n == 3:
         return 4
     if n == 2:
@@ -27,10 +28,14 @@ def climbing_stairs(n, cache=None):
         return 1
     if n <= 0:
         return 0
-    return climbing_stairs(n-1) + climbing_stairs(n-2) + climbing_stairs(n-3)
+    if n in cache:
+        return cache[n]
+    value = climbing_stairs(n-1) + climbing_stairs(n-2) + climbing_stairs(n-3)
+    cache[n] = value
+    return value
 
 
-print(climbing_stairs(10))
+print(climbing_stairs(500))
 
 
 if __name__ == "__main__":
